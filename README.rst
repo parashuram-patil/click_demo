@@ -26,7 +26,10 @@ Simple click greeting commands, Hi and Bye only :)
 Features
 --------
 
-* TODO
+* Simple click greeting commands that takes name and greets
+    - Commands Available
+        - Hi
+        - Bye
 
 Credits
 -------
