@@ -11,7 +11,7 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
-requirements = ['Click>=6.0', ]
+requirements = ['Click>=7.0', ]
 
 setup_requirements = [ ]
 
@@ -36,7 +36,7 @@ setup(
     description="Simple click greeting commands, Hi and Bye only :)",
     entry_points={
         'console_scripts': [
-            'click_demo=click_demo.cli:main',
+            'psp=click_demo.click_demo:cli',
         ],
     },
     install_requires=requirements,
