@@ -33,7 +33,7 @@ Features
 
 Usage
 --------
-.. image:: ./docs/images/click-demo-usages.gif
+.. image:: https://github.com/parashuram-patil/click_demo/blob/master/docs/images/click-demo-usages.gif
 
 Credits
 -------
