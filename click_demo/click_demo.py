@@ -41,6 +41,12 @@ def makejson(name):
 def info(transformation):
     click.echo(getattr(sys.platform, transformation)())
 
+
+@psp.command()
+@click.option('--hash-type', type=click.Choice(['md5', 'sha1']), prompt='Enter type')
+def digest(hash_type):
+    click.echo('You selected : ' + hash_type)
+
 # psp.add_command(hi)
 # psp.add_command(bye)
 
