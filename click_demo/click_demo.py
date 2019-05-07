@@ -21,8 +21,8 @@ def bye(name):
     click.echo('Bye {}!'.format(name))
 
 
-psp.add_command(hi)
-psp.add_command(bye)
+# psp.add_command(hi)
+# psp.add_command(bye)
 
 if __name__ == '__main__':
     pass

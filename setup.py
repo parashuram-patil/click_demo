@@ -36,7 +36,7 @@ setup(
     description="Simple click greeting commands, Hi and Bye only :)",
     entry_points={
         'console_scripts': [
-            'psp=click_demo.click_demo:cli',
+            'psp=click_demo.click_demo:psp',
         ],
     },
     install_requires=requirements,
