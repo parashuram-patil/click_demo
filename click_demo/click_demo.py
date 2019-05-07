@@ -1,3 +1,5 @@
+import json
+
 import click
 
 
@@ -21,8 +23,19 @@ def bye(name):
     click.echo('Bye {}!'.format(name))
 
 
+@psp.command()
+@click.option('--name', nargs=2, type=str)
+def makejson(name):
+    event_payload = {
+        "fname": name[0],
+        "lname": name[1]
+    }
+    print(json.dumps(event_payload, indent=4, sort_keys=False))
+
+
 # psp.add_command(hi)
 # psp.add_command(bye)
+
 
 if __name__ == '__main__':
     pass
