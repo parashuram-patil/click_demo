@@ -33,7 +33,7 @@ Features
 
 Usage
 --------
-.. image:: ./docs/images/click-demo-usages.png
+.. image:: ./docs/images/click-demo-usages.gif
 
 Credits
 -------
