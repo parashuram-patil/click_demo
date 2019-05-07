@@ -1,4 +1,5 @@
 import json
+import sys
 
 import click
 
@@ -32,6 +33,13 @@ def makejson(name):
     }
     print(json.dumps(event_payload, indent=4, sort_keys=False))
 
+
+@psp.command()
+@click.option('--upper', 'transformation', flag_value='upper',
+              default=True)
+@click.option('--lower', 'transformation', flag_value='lower')
+def info(transformation):
+    click.echo(getattr(sys.platform, transformation)())
 
 # psp.add_command(hi)
 # psp.add_command(bye)
