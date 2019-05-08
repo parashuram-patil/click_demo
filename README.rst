@@ -16,7 +16,7 @@ click_demo
 
 
 
-Simple click greeting commands, Hi and Bye only :)
+Click commands Implementation along with Test cases
 
 
 * Free software: MIT license
@@ -26,10 +26,9 @@ Simple click greeting commands, Hi and Bye only :)
 Features
 --------
 
-* Simple click greeting commands that takes name and greets
-    - Commands Available
-        - Hi
-        - Bye
+* Simple click greeting commands
+* Examples from `Click Documentation`_
+* Testing Click Commands using click.testing.CliRunner
 
 Usage
 --------
@@ -43,3 +42,4 @@ This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypack
 
 .. _Cookiecutter: https://github.com/audreyr/cookiecutter
 .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+.. _`Click Documentation` : https://click.palletsprojects.com/en/7.x/options/

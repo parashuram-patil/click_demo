@@ -33,7 +33,7 @@ setup(
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
     ],
-    description="Simple click greeting commands, Hi and Bye only :)",
+    description="Click commands Implementation along with Test cases",
     entry_points={
         'console_scripts': [
             'psp=click_demo.click_demo:psp',
