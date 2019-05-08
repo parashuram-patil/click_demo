@@ -12,7 +12,7 @@ def psp():
 
 
 @psp.command()
-@click.option('--name', '-n', default='there', prompt='Please ent Name', help='Name of the person to greet',
+@click.option('--name', '-n', default='there', prompt='Please enter Name', help='Name of the person to greet',
               show_default=True)
 def hi(name):
     click.echo('Hi {}!'.format(name))  # used instead of print since print syntax differ by version, just a
@@ -20,7 +20,7 @@ def hi(name):
 
 
 @psp.command()
-@click.option('--name', '-n', default='there', prompt='Please ent Name', help='Name of the person to greet',
+@click.option('--name', '-n', default='there', prompt='Please enter Name', help='Name of the person to greet',
               show_default=True)
 def bye(name):
     click.echo('Bye {}!'.format(name))
@@ -58,7 +58,6 @@ def encrypt(password):
 
 
 def print_version(ctx, param, value):
-    print("----> " + str(value))
     if not value or ctx.resilient_parsing:
         return
     click.echo('Version 1.0')
@@ -72,6 +71,20 @@ def print_version(ctx, param, value):
               expose_value=False, is_eager=True)
 def hello(username):
     print("Hello,", username)
+
+
+def abort_if_false(ctx, param, value):
+    if not value:
+        ctx.abort()
+
+
+@psp.command()
+@click.option('--yes', is_flag=True, callback=abort_if_false,
+              expose_value=False,
+              prompt='Are you sure you want to drop the db?')
+@click.option('--username', prompt="Enter Username")
+def dropdb(username):
+    click.echo('DB dropped by user {}!'.format(username))
 
 
 # psp.add_command(hi)
