@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """Tests for `click_demo` package."""
-
+import os
 import unittest
 from click.testing import CliRunner
 
@@ -59,3 +59,49 @@ class TestClick_demo(unittest.TestCase):
 
         result = runner.invoke(click_demo.bye)
         assert 'Bye there!' in result.output
+
+    def test_command_hello(self):
+        """Testing Command Hello"""
+
+        runner = CliRunner()
+        result = runner.invoke(click_demo.hello)
+        assert result.exit_code == 0
+
+        result = runner.invoke(click_demo.hello, ['--version'])
+        assert 'Version 1.0' in result.output
+
+        result = runner.invoke(click_demo.hello, ['--username', 'PSP'])
+        assert 'Hello PSP' in result.output
+
+    def test_command_dropdb(self):
+        """Testing Command Drop DB"""
+
+        runner = CliRunner()
+        result = runner.invoke(click_demo.dropdb)
+        # assert result.exit_code == 0  # not working
+
+        result = runner.invoke(click_demo.dropdb, ['--yes', '--username', 'PSP'])
+        assert 'DB dropped by user PSP!' in result.output
+
+        result = runner.invoke(click_demo.dropdb, ['n'])
+        assert 'Aborted!' in result.output  # actually not working, confirmed with with
+
+    def test_command_greet(self):
+        """Testing Command Hello"""
+
+        runner = CliRunner()
+        result = runner.invoke(click_demo.greet)
+        assert result.exit_code == 0
+
+        result = runner.invoke(click_demo.greet, ['--dob', '24/03/1991'])
+        assert 'Your DOB is 24/03/1991' in result.output
+
+        result = runner.invoke(click_demo.greet, ['--username', 'PSP', '--dob', '24/03/1991'])
+        assert 'Hey PSP!' in result.output
+
+        os.environ['USERNAME'] = 'Alien'
+        #os.environ['DOB'] = '32/13/0000'
+        result = runner.invoke(click_demo.greet)
+        assert 'Hey Alien!' in result.output
+        #assert '32/13/0000' in result.output
+
