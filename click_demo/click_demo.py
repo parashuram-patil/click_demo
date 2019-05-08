@@ -1,3 +1,4 @@
+import codecs
 import json
 import sys
 
@@ -46,6 +47,13 @@ def info(transformation):
 @click.option('--hash-type', type=click.Choice(['md5', 'sha1']), prompt='Enter type')
 def digest(hash_type):
     click.echo('You selected : ' + hash_type)
+
+
+@psp.command()
+@click.option('--password', prompt=True, hide_input=True,
+              confirmation_prompt=True)
+def encrypt(password):
+    click.echo('Encrypting password to {}'.format(codecs.encode(password, 'rot13')))
 
 # psp.add_command(hi)
 # psp.add_command(bye)
