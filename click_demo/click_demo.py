@@ -79,9 +79,7 @@ def abort_if_false(ctx, param, value):
 
 
 @psp.command()
-@click.option('--yes', is_flag=True, callback=abort_if_false,
-              expose_value=False,
-              prompt='Are you sure you want to drop the db?')
+@click.confirmation_option(prompt='Are you sure you want to drop the db?')
 @click.option('--username', prompt="Enter Username")
 def dropdb(username):
     click.echo('DB dropped by user {}!'.format(username))
