@@ -15,7 +15,7 @@ def psp():
 @click.option('--name', '-n', default='there', prompt='Please ent Name', help='Name of the person to greet',
               show_default=True)
 def hi(name):
-    click.echo('Hi {}!'.format(name))    # used instead of print since print syntax differ by version, just a
+    click.echo('Hi {}!'.format(name))  # used instead of print since print syntax differ by version, just a
     # safer side they say
 
 
@@ -57,11 +57,22 @@ def encrypt(password):
     click.echo('Encrypting password to {}'.format(codecs.encode(password, 'rot13')))
 
 
+def print_version(ctx, param, value):
+    print("----> " + str(value))
+    if not value or ctx.resilient_parsing:
+        return
+    click.echo('Version 1.0')
+    ctx.exit()
+
+
 @psp.command()
 @click.option('--username', prompt=True,
               default=lambda: os.environ.get('USER', ''), show_default=os.environ.get('USER', ''))
+@click.option('--version', is_flag=True, callback=print_version,
+              expose_value=False, is_eager=True)
 def hello(username):
     print("Hello,", username)
+
 
 # psp.add_command(hi)
 # psp.add_command(bye)
