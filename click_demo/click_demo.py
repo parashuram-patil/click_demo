@@ -85,9 +85,28 @@ def dropdb(username):
     click.echo('DB dropped by user {}!'.format(username))
 
 
+@psp.command()
+@click.option('--username', envvar='USERNAME')
+@click.option('--dob')
+def greet(username, dob):
+    click.echo('%s ' % username + 'has DOB %s' % dob)
+    # click.echo('{}'.format(username) + ' has DOB {}'.format(dob))
+
+
+@psp.command()
+@click.option('paths', '--path', envvar='PATH', multiple=True,
+              type=click.Path())
+def perform(paths):
+    for path in paths:
+        click.echo(path)
+
+
+if __name__ == '__main__':
+    perform()
+
 # psp.add_command(hi)
 # psp.add_command(bye)
 
 
 if __name__ == '__main__':
-    pass
+    psp(auto_envvar_prefix='PSP')
