@@ -1,5 +1,6 @@
 import codecs
 import json
+import os
 import sys
 
 import click
@@ -54,6 +55,13 @@ def digest(hash_type):
               confirmation_prompt=True)
 def encrypt(password):
     click.echo('Encrypting password to {}'.format(codecs.encode(password, 'rot13')))
+
+
+@psp.command()
+@click.option('--username', prompt=True,
+              default=lambda: os.environ.get('USER', ''), show_default=os.environ.get('USER', ''))
+def hello(username):
+    print("Hello,", username)
 
 # psp.add_command(hi)
 # psp.add_command(bye)
