@@ -70,7 +70,7 @@ def print_version(ctx, param, value):
 @click.option('--version', is_flag=True, callback=print_version,
               expose_value=False, is_eager=True)
 def hello(username):
-    print("Hello,", username)
+    print("Hello", username)
 
 
 def abort_if_false(ctx, param, value):
@@ -89,7 +89,8 @@ def dropdb(username):
 @click.option('--username', envvar='USERNAME')
 @click.option('--dob')
 def greet(username, dob):
-    click.echo('%s ' % username + 'has DOB %s' % dob)
+    click.echo('Hey %s' % username + '!')
+    click.echo('Your DOB is %s' % dob)
     # click.echo('{}'.format(username) + ' has DOB {}'.format(dob))
 
 
