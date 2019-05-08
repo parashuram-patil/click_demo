@@ -100,8 +100,7 @@ class TestClick_demo(unittest.TestCase):
         assert 'Hey PSP!' in result.output
 
         os.environ['USERNAME'] = 'Alien'
-        #os.environ['DOB'] = '32/13/0000'
+        # os.environ['DOB'] = '32/13/0000'
         result = runner.invoke(click_demo.greet)
         assert 'Hey Alien!' in result.output
-        #assert '32/13/0000' in result.output
-
+        # assert '32/13/0000' in result.output
